@@ -2,7 +2,7 @@
   <Navbar />
   <Hero title="Test Title" subtitle="Test Subtitle"/>
   <HomeCards />
-  <JobListings :limit="3"/>
+  <JobListings :limit="3" :showButton="true"/>
 </template>
 <script setup>
 import Navbar from './components/Navbar.vue';
