@@ -23,7 +23,7 @@
   <button @click="toggleStatus">Toggle Status</button>
 </template>
 <script>
-import { ref } from 'vue';
+import { onMounted, ref } from 'vue';
   export default {
     setup() {
       const name = ref('Seren Kaya');
@@ -56,6 +56,16 @@ import { ref } from 'vue';
       const deleteTask = (taskId) => {
         tasks.value = tasks.value.filter(task => task.id !== taskId);
       };
+
+      onMounted(async () => {
+        try {
+          const response = await fetch('https://jsonplaceholder.typicode.com/todos');
+          const data = await response.json();
+          tasks.value = data.map((task) => task.title)
+        } catch (error) {
+          console.error('Error fetching tasks:', error);
+        }
+      });
 
       return {
         name,
