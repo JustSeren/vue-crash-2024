@@ -1,3 +1,13 @@
 <template>
-  <h1>Vue Jobs</h1>
+  <h1>{{name}}</h1>
 </template>
+
+<script>
+  export default{
+    data () {
+      return {
+        name: 'I\'m Seren'
+      }
+    },
+  }
+</script>
