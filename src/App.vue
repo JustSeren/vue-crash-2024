@@ -61,7 +61,10 @@ import { onMounted, ref } from 'vue';
         try {
           const response = await fetch('https://jsonplaceholder.typicode.com/todos');
           const data = await response.json();
-          tasks.value = data.map((task) => task.title)
+          tasks.value = data.map(task => ({
+            id: task.id,
+            title: task.title
+          }))
         } catch (error) {
           console.error('Error fetching tasks:', error);
         }
