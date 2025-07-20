@@ -16,6 +16,7 @@
   <ul>
     <li v-for="task in tasks" :key="task.id">
       <span>{{ task.title }}</span>
+      <button @click="deleteTask(task.id)">X</button>
     </li>
   </ul>
   <br/>
@@ -51,13 +52,19 @@ import { ref } from 'vue';
           newTask.value = '';
         }
       }
+
+      const deleteTask = (taskId) => {
+        tasks.value = tasks.value.filter(task => task.id !== taskId);
+      };
+
       return {
         name,
         status,
         tasks,
         toggleStatus,
         addTask,
-        newTask
+        newTask,
+        deleteTask
       };
     }
   }
