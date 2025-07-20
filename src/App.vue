@@ -12,6 +12,9 @@
   </ul>
   <a v-bind:href="link" target="_blank">Vue.js Documentation</a>
   <a :href="link" target="_blank">Vue.js Documentation without v-bind</a>
+  <br/>
+ <button v-on:click="toggleStatus">Toggle Status</button>
+ <button @click="toggleStatus">Toggle Status</button>
 </template>
 
 <script>
@@ -26,6 +29,17 @@
           { id: 3, title: 'Task 3', completed: true },
         ],
         link: 'https://vuejs.org/',
+      }
+    },
+    methods: {
+      toggleStatus () {
+        if (this.status === 'active') {
+          this.status = 'pending'
+        } else if (this.status === 'pending') {
+          this.status = 'inactive'
+        } else {
+          this.status = 'active'
+        }
       }
     },
   }
