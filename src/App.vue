@@ -4,11 +4,18 @@
   <p v-else-if="status === 'pending'"> User is <strong>pending</strong></p>
   <p v-else> User is <strong>inactive</strong></p>
 
+  <form @submit.prevent="addTask">
+    <label for="newTask"> Add Task</label>
+    <br/>
+    <input type="text" id="newTask" name="newTask" v-model="newTask" />
+    <br/>
+    <button type="submit">Add</button>
+  </form>
 
   <h3>Tasks</h3>
   <ul>
     <li v-for="task in tasks" :key="task.id">
-      <span :class="{ completed: task.completed }">{{ task.title }}</span>
+      <span>{{ task.title }}</span>
     </li>
   </ul>
   <br/>
@@ -21,10 +28,11 @@ import { ref } from 'vue';
       const name = ref('Seren Kaya');
       const status = ref('active');
       const tasks = ref([
-        { id: 1, title: 'Learn Vue.js', completed: true },
-        { id: 2, title: 'Build a project', completed: false },
-        { id: 3, title: 'Deploy the project', completed: false }
+        { id: 1, title: 'Learn Vue.js'},
+        { id: 2, title: 'Build a project' },
+        { id: 3, title: 'Deploy the project'}
       ]);
+      const newTask = ref('');
       const toggleStatus = () => {
         if(status.value === 'active') {
           status.value = 'pending';
@@ -34,11 +42,22 @@ import { ref } from 'vue';
           status.value = 'active';
         }
       };
+      const addTask = () => {
+        if (newTask.value.trim() !== '') {
+          tasks.value.push({
+            id: tasks.value.length + 1,
+            title: newTask.value
+          });
+          newTask.value = '';
+        }
+      }
       return {
         name,
         status,
         tasks,
-        toggleStatus
+        toggleStatus,
+        addTask,
+        newTask
       };
     }
   }
