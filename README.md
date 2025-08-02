@@ -27,3 +27,13 @@ npm run dev
 ```sh
 npm run build
 ```
+
+### For run server (json datas)
+```sh
+npm run server
+```
+
+### For run app
+```sh
+yarn dev
+```
