@@ -83,6 +83,48 @@
         "contactEmail": "contact@ipsumlorem.com",
         "contactPhone": "555-555-5555"
       }
+    },
+    {
+      "id": "9aaf",
+      "type": "Part-Time",
+      "title": "Seren Kaya",
+      "description": "ererer",
+      "salary": "Over $200K",
+      "location": "errer",
+      "company": {
+        "name": "rere",
+        "description": "rere",
+        "contact_email": "ree@gmail.com",
+        "contact_phone": "5464"
+      }
+    },
+    {
+      "id": "97e5",
+      "type": "Part-Time",
+      "title": "Seren Kaya",
+      "description": "ererer",
+      "salary": "Over $200K",
+      "location": "errer",
+      "company": {
+        "name": "rere",
+        "description": "rere",
+        "contact_email": "ree@gmail.com",
+        "contact_phone": "5464"
+      }
+    },
+    {
+      "id": "0fa1",
+      "type": "Full-Time",
+      "title": "Seren Kaya",
+      "description": "rtretret",
+      "salary": "$60K - $70K",
+      "location": "Ankara",
+      "company": {
+        "name": "rere",
+        "description": "ertert",
+        "contact_email": "ree@gmail.com",
+        "contact_phone": "5464"
+      }
     }
   ]
 }
