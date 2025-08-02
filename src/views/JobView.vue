@@ -93,6 +93,8 @@ const state = reactive({
 
 const deleteJob = async () => {
     try {
+        const confirm = window.confirm('Are you sure you want to delete this job? This action cannot be undone.');
+        if (!confirm) return;
         await axios.delete(`/api/jobs/${jobId}`); // Replace with your API endpoint
         toast.success('Job deleted successfully');
         router.push('/jobs'); // Redirect to jobs list after deletion
