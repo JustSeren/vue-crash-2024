@@ -4,18 +4,18 @@
             <div class="flex h-20 items-center justify-between">
                 <div class="flex flex-1 items-center justify-center md:items-stretch md:justify-start">
                     <!-- Logo -->
-                    <a class="flex flex-shrink-0 items-center mr-4" href="index.html">
+                    <router-link class="flex flex-shrink-0 items-center mr-4" to="/">
                         <img class="h-10 w-auto" :src="logo" alt="Vue Jobs" />
                         <span class="hidden md:block text-white text-2xl font-bold ml-2">Vue Jobs</span>
-                    </a>
+                    </router-link>
                     <div class="md:ml-auto">
                         <div class="flex space-x-2">
-                            <a href="/"
-                                class="text-white bg-green-900 hover:bg-gray-900 hover:text-white rounded-md px-3 py-2">Home</a>
-                            <a href="/jobs"
-                                class="text-white hover:bg-green-900 hover:text-white rounded-md px-3 py-2">Jobs</a>
-                            <a href="/jobs/add"
-                                class="text-white hover:bg-green-900 hover:text-white rounded-md px-3 py-2">Add Job</a>
+                            <router-link to="/"
+                                :class="[isActiveLink('/') ? 'bg-green-900': 'hover:bg-gray-900' , 'text-white', , 'hover:text-white',  'rounded-md',  'px-3', 'py-2']">Home</router-link>
+                            <router-link to="/jobs"
+                                :class="[isActiveLink('/jobs') ? 'bg-green-900': 'hover:bg-gray-900' , 'text-white', , 'hover:text-white',  'rounded-md',  'px-3', 'py-2']">Jobs</router-link>
+                            <router-link to="/jobs/add"
+                                :class="[isActiveLink('/jobs/add') ? 'bg-green-900': 'hover:bg-gray-900' , 'text-white', , 'hover:text-white',  'rounded-md',  'px-3', 'py-2']">Add Job</router-link>
                         </div>
                     </div>
                 </div>
@@ -26,10 +26,16 @@
 
 <script >
 import logo from '@/assets/img/logo.png';
+import { RouterLink, useRoute } from 'vue-router';
 export default {
     setup() {
+        const isActiveLink = (routePath) => {
+            const route = useRoute();
+            return route.path === routePath;
+        };
         return {
-            logo
+            logo,
+            isActiveLink
         };
     }
 };
