@@ -16,10 +16,10 @@
     </section>
 </template>
 <script>
-import jobData from '@/jobs.json';
-import { ref } from 'vue';
+import { ref, onMounted } from 'vue';
 import JobListingSingular from './JobListingSingular.vue';
 import { RouterLink } from 'vue-router';
+import axios from 'axios';
 export default {
     name: 'JobListings',
     components: {
@@ -35,11 +35,19 @@ export default {
         }
     },
     setup() {
-        const jobs = ref(jobData.jobs)
+        const jobs = ref([])
         // console.log(jobs);
 
+        onMounted(async () => {
+            try {
+                const response = await axios.get('http://localhost:5000/jobs'); // Replace with your API endpoint
+                jobs.value = response.data;
+            } catch (error) {
+                console.error('Error fetching jobs:', error);
+            }
+        });
         return {
-            jobs
+            jobs,
         };
     }
 };
