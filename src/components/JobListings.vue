@@ -50,7 +50,7 @@ export default {
 
         onMounted(async () => {
             try {
-                const response = await axios.get('http://localhost:5000/jobs'); // Replace with your API endpoint
+                const response = await axios.get('/api/jobs'); // Replace with your API endpoint
                 state.jobs = response.data;
             } catch (error) {
                 console.error('Error fetching jobs:', error);

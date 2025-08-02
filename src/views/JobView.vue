@@ -78,7 +78,6 @@ import { reactive, onMounted } from 'vue';
 import { useRoute, RouterLink } from 'vue-router';
 import BackButton from '@/components/BackButton.vue';
 import axios from 'axios';
-import BackButton from '@/components/BackButton.vue';
 
 const route = useRoute();
 
@@ -91,7 +90,7 @@ const state = reactive({
 
 onMounted(async () => {
     try {
-        const response = await axios.get(`http://localhost:5000/jobs/${jobId}`); // Replace with your API endpoint
+        const response = await axios.get(`/api/jobs/${jobId}`); // Replace with your API endpoint
         state.job = response.data;
     } catch (error) {
         console.error('Error fetching jobs:', error);
