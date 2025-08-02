@@ -125,6 +125,20 @@
         "contact_email": "ree@gmail.com",
         "contact_phone": "5464"
       }
+    },
+    {
+      "id": "0d10",
+      "type": "Full-Time",
+      "title": "Seren Kayas",
+      "description": "ss",
+      "salary": "$50K - $60K",
+      "location": "Ankara",
+      "company": {
+        "name": "rere",
+        "description": "sas",
+        "contact_email": "serenkaya276@gmail.com",
+        "contact_phone": "5464"
+      }
     }
   ]
 }
