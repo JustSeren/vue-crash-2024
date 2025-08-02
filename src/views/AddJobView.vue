@@ -99,6 +99,7 @@
 import { reactive } from 'vue';
 import axios from 'axios';
 import router from '@/router';
+import { useToast } from 'vue-toastification';
 const form = reactive({
     type: 'Full-Time',
     title: '',
@@ -112,7 +113,7 @@ const form = reactive({
         contact_phone: ''
     }
 });
-
+const toast = useToast();
 const handleSubmit = async () => {
     const newJob = {
         type: form.type,
@@ -129,8 +130,10 @@ const handleSubmit = async () => {
     };
     try {
         const response = await axios.post(`/api/jobs/`, newJob); // Replace with your API endpoint
+        toast.success('Job added successfully!');
         router.push(`/jobs/${response.data.id}`);
     } catch (error) {
+        toast.error('Failed to add job. Please try again.');
         console.error('Error fetching jobs:', error);
     }
 }
